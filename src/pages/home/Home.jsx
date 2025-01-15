@@ -1,11 +1,12 @@
 import React from 'react'
-import Navbar from '../../components/home/Navbar'
+import Navbar from '../../components/navbar/Navbar'
+import { Box } from '@mui/material'
 
 const Home = () => {
   return (
-    <>
-      <Navbar/>
-    </>
+    <Box>
+    Home
+    </Box>
   )
 }
 
