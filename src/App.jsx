@@ -7,6 +7,9 @@ import About from "./pages/about/About";
 import Reviews from "./pages/reviews/Reviews";
 import Services from "./pages/services/Services";
 import Layout from "./components/layout/Layout";
+import LandingServices from "./pages/home/services/LandingServices";
+import OurTeam from "./pages/home/Team/OurTeam";
+import Testimonials from "./pages/home/testimonials/Testimonials";
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/landingservices" element={<LandingServices />} />
+          <Route path="/team" element={<OurTeam />} />
+          <Route path="/testimonials" element={<Testimonials />} />
         </Route>
       </Routes>
     </Router>
