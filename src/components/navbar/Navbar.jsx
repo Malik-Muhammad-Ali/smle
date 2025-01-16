@@ -34,7 +34,7 @@ const Navbar = () => {
   // Component
   return (
     <AppBar
-      position="static"
+      position="sticky"
       sx={{
         background: "white",
         maxWidth: "100vw",
