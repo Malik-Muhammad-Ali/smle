@@ -155,7 +155,7 @@ const Testimonials = () => {
           display: "grid",
           gridTemplateColumns: {
             xs: "1fr", // Single column for small screens
-            sm: "repeat(2, 1fr)", // Two columns for medium screens
+            sm: "repeat(2, 1fr)", // Two columns for tablet screens
             md: "repeat(3, 1fr)", // Three columns for large screens
           },
           gap: "20px",
@@ -166,10 +166,18 @@ const Testimonials = () => {
             key={index}
             sx={{
               borderRadius: "20px",
-              minWidth: { lg: "400px", sm: "400px", md: "400px", xs: "300px" },
+              minWidth: {
+                lg: "400px",
+                md: "400px",
+                sm: "300px", // Adjusted for tablet screens
+                xs: "280px", // Adjusted for small screens
+              },
               maxWidth: "auto",
               maxHeight: "auto",
-              minHeight: "400px",
+              minHeight: {
+                sm: "380px", // Adjusted for tablet screens
+                xs: "360px", // Adjusted for small screens
+              },
               boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
               textAlign: "center",
               padding: "40px",
@@ -217,7 +225,6 @@ const Testimonials = () => {
             </Box>
             <CardContent
               sx={{
-                // padding: "10px 20px", // Reduce padding to minimize space
                 "&:last-child": { paddingBottom: "10px" }, // Adjust bottom padding
               }}
             >

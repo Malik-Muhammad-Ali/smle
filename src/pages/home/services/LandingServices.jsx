@@ -7,7 +7,6 @@ import {
   Typography,
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import React from "react";
 
 const LandingServices = () => {
   const cardData = [
@@ -120,7 +119,11 @@ const LandingServices = () => {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
+          gridTemplateColumns: {
+            xs: "1fr", // Single column for mobile
+            sm: "repeat(2, 1fr)", // Two columns for tablet
+            lg: "repeat(auto-fit, minmax(400px, 1fr))", // As it is for laptops and larger screens
+          },
           gap: "40px",
           padding: "20px",
           alignItems: "center",
@@ -131,7 +134,7 @@ const LandingServices = () => {
           <Card
             key={index}
             sx={{
-              width: "400px",
+              width: { lg: "350px", sm: "350px", md: "400px", xs: "400px" },
               border: "1px solid grey",
               borderRadius: "40px",
               gap: "10px",
@@ -168,7 +171,7 @@ const LandingServices = () => {
               sx={{
                 paddingTop: "10px",
                 objectFit: "contain",
-                width: 400,
+                width: "270px",
                 // alignSelf: "center",
                 height: "195px",
               }}

@@ -155,7 +155,7 @@ const Footer = () => {
                 <IconButton
                   key={index}
                   sx={{
-                    backgroundColor: "white",
+                    backgroundColor: "#f5f5f5",
                     color: "#007bff",
                     borderRadius: "50%",
                     "&:hover": {
@@ -178,7 +178,8 @@ const Footer = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "start",
+            flexDirection: { xs: "column", sm: "row", md: "row", lg: "row" },
+            alignItems: "center",
           }}
         >
           <Box
