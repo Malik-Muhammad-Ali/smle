@@ -38,6 +38,7 @@ const StatsSection = () => {
           mr: { xs: 2, sm: 4, md: 8 },
           ml: { xs: 2, sm: 4, md: 8 },
           borderRadius: "16px",
+          boxShadow:2
         }}
       >
         <Box
