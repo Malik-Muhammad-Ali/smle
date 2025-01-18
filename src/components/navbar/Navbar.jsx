@@ -1,8 +1,10 @@
 import * as React from "react";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import { Link } from "react-scroll";
+import "./Navbar.css";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import PersonSharpIcon from "@mui/icons-material/PersonSharp";
@@ -46,16 +48,10 @@ const Navbar = () => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* Logo */}
           <Box
             sx={{
               display: "flex",
-              justifyContent: {
-                xs: "space-between",
-                md: "space-between",
-                lg: "start",
-                sm: "space-between",
-              },
+              justifyContent: "space-between",
               alignItems: "center",
               width: "100%",
             }}
@@ -63,7 +59,6 @@ const Navbar = () => {
             <img src={Logo} alt="logo" />
           </Box>
 
-          {/* Display elements on large screens */}
           <Box
             sx={{
               flexGrow: 1,
@@ -79,83 +74,99 @@ const Navbar = () => {
                 display: "flex",
                 justifyContent: "space-around",
                 alignItems: "center",
-                gap:"20px",
+                gap: "20px",
                 width: "70%",
               }}
             >
-              {/* Pages */}
-              <Link to="/">
+              {/* Smooth Scroll Links */}
+              <Link
+                to="hero-section"
+                smooth={true}
+                duration={500}
+                spy={true}
+                activeClass="active"
+              >
                 <Button
                   sx={{
                     fontSize: "16px",
                     fontWeight: "400",
                     color: "black",
+                    // borderBottom: "none",
                   }}
                 >
                   Home
                 </Button>
               </Link>
 
-              <Link to="/about">
+              <Link
+                to="services-section"
+                smooth={true}
+                duration={500}
+                spy={true}
+                activeClass="active"
+              >
                 <Button
                   sx={{
                     fontSize: "16px",
                     fontWeight: "400",
                     color: "black",
-                  }}
-                >
-                  About
-                </Button>
-              </Link>
-
-              <Link to="/services">
-                <Button
-                  sx={{
-                    fontSize: "16px",
-                    fontWeight: "400",
-                    color: "black",
+                    // borderBottom: "none",
                   }}
                 >
                   Services
-                  {/* {language === 'en' ? 'Subscriptions' : 'الاشتراكات'} */}
                 </Button>
               </Link>
-              <Link to="/reviews">
+
+              <Link
+                to="team-section"
+                smooth={true}
+                duration={500}
+                spy={true}
+                activeClass="active"
+              >
                 <Button
                   sx={{
                     fontSize: "16px",
                     fontWeight: "400",
                     color: "black",
+                    // borderBottom: "none",
                   }}
                 >
-                  Reviews
-                  {/* {language === 'en' ? 'Subscriptions' : 'الاشتراكات'} */}
+                  Our Team
+                </Button>
+              </Link>
+
+              <Link
+                to="testimonials-section"
+                smooth={true}
+                duration={500}
+                spy={true}
+                activeClass="active"
+              >
+                <Button
+                  sx={{
+                    fontSize: "16px",
+                    fontWeight: "400",
+                    color: "black",
+                    // borderBottom: "none",
+                  }}
+                >
+                  Testimonials
                 </Button>
               </Link>
             </Box>
-            <Box sx={{
-              display:"flex",
-              justifyContent:"center",
-              alignItems:"center",
-              width:"100%",
-              height:"50px"
-            }}>
             <Button
               variant="contained"
               endIcon={<EastIcon />}
               sx={{
                 bgcolor: "#116EFA",
                 borderRadius: "10px",
-                width:"150px",
-                // height:"100%"
+                width: "150px",
               }}
             >
               Enroll Now
             </Button>
-            </Box>
           </Box>
-
-          {/* Menu Icon for Small Screens */}
           <Box
             sx={{
               flexGrow: 1,
@@ -173,7 +184,7 @@ const Navbar = () => {
                 borderRadius: "20%",
                 padding: "8px",
                 border: "2px solid white",
-                ml: "10px",
+                // ml: "10px",
               }}
             >
               <MenuIcon sx={{ color: "white" }} />{" "}
