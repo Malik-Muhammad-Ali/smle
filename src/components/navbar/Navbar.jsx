@@ -99,6 +99,25 @@ const Navbar = () => {
               </Link>
 
               <Link
+                to="about-us"
+                smooth={true}
+                duration={500}
+                spy={true}
+                activeClass="active"
+              >
+                <Button
+                  sx={{
+                    fontSize: "16px",
+                    fontWeight: "400",
+                    color: "black",
+                    // borderBottom: "none",
+                  }}
+                >
+                  About
+                </Button>
+              </Link>
+
+              <Link
                 to="services-section"
                 smooth={true}
                 duration={500}
@@ -118,25 +137,6 @@ const Navbar = () => {
               </Link>
 
               <Link
-                to="team-section"
-                smooth={true}
-                duration={500}
-                spy={true}
-                activeClass="active"
-              >
-                <Button
-                  sx={{
-                    fontSize: "16px",
-                    fontWeight: "400",
-                    color: "black",
-                    // borderBottom: "none",
-                  }}
-                >
-                  Our Team
-                </Button>
-              </Link>
-
-              <Link
                 to="testimonials-section"
                 smooth={true}
                 duration={500}
@@ -151,7 +151,7 @@ const Navbar = () => {
                     // borderBottom: "none",
                   }}
                 >
-                  Testimonials
+                  Reviews
                 </Button>
               </Link>
             </Box>

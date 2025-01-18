@@ -7,9 +7,9 @@ import About from "./pages/about/About";
 import Reviews from "./pages/reviews/Reviews";
 import Services from "./pages/services/Services";
 import Layout from "./components/layout/Layout";
-import OurTeam from "./pages/home/Team/OurTeam";
-import Testimonials from "./pages/home/testimonials/Testimonials";
-import LandingServices from "./pages/home/services/LandingServices";
+import OurTeam from "./components/homescreen/OurTeam";
+import Testimonials from "./components/homescreen/Testimonials";
+import LandingServices from "./components/homescreen/LandingServices";
 import Login from "./components/auth/Login";
 
 function App() {
