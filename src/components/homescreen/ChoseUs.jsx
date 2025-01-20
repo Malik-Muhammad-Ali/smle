@@ -1,10 +1,11 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React from "react";
 import { styled } from "@mui/material/styles";
+import "./choseus.css"
 
 const CustomAccordion = styled(Accordion)(({ theme }) => ({
   backgroundColor: "transparent", // Transparent background
@@ -31,7 +32,7 @@ const CustomAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
   maxHeight: "40px",
   // padding: "8px", // Padding for header
   "& .MuiTypography-root": {
-    fontSize: "18px", // Adjust heading font size
+    fontSize: {xs:"12px",sm:"14px",md:"18px",lg:"18px"}, // Adjust heading font size
     fontWeight: 600, // Bold heading text
   },
   "&.Mui-expanded": {
@@ -54,6 +55,7 @@ const CustomAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
 
 const ChoseUs = () => {
   const [expanded, setExpanded] = React.useState(false);
+  const isMobileOrTablet = useMediaQuery("(max-width:960px)");
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -62,28 +64,26 @@ const ChoseUs = () => {
     <Box
       sx={{
         display: "flex",
-        // flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         mr: { xs: 2, sm: 4, md: 8 },
         ml: { xs: 2, sm: 4, md: 8 },
-        height: "650px",
+        height: {xs:"auto",lg:"650px"},
         // border: "2px solid black",
       }}
     >
       <Box
         sx={{
           display: "flex",
-          // flexDirection: "column",
+          flexDirection:{xs:"column",sm:"column",md:"row",lg:"row"},
           justifyContent: "space-between",
-          // alignItems: "center",
+          alignItems: {xs:"center",sm:"center",md:"flex-start",lg:"flex-start"},
           gap: "30px",
           bgcolor: "#116EFA",
           height: "75%",
           borderRadius: "20px",
           // border: "2px solid black",
           flexGrow: 1,
-          // mb:"40px"
         }}
       >
       {/* left section */}
@@ -95,11 +95,8 @@ const ChoseUs = () => {
             justifyContent: "flex-start",
             gap: "10px",
             // border: "2px solid red",
-            width: "50%",
+            width: {xs:"100%",sm:"100%",md:"50%",lg:"50%"},
             p: "10px",
-
-            // alignItems: { xs: "flex-start", md: "center" },
-            // gap: "30px",
           }}
         >
           <Box
@@ -107,7 +104,6 @@ const ChoseUs = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "start",
-              // marginBottom: "30px",
             }}
           >
             <Typography
@@ -138,7 +134,7 @@ const ChoseUs = () => {
               variant="h3"
               sx={{
                 fontWeight: "bold",
-                fontSize: { xs: "32px", sm: "40px", lg: "40px" },
+                fontSize: { xs: "28px", sm: "40px", lg: "40px" },
                 fontFamily: "Roboto",
                 color: "#FFFFFF",
               }}
@@ -245,7 +241,8 @@ const ChoseUs = () => {
           </Box>
         </Box>
         {/* right section */}
-        <Box
+        {!isMobileOrTablet ? 
+        (<Box
           item
           xs={12}
           md={6}
@@ -255,30 +252,42 @@ const ChoseUs = () => {
             alignItems: "center",
             justifyContent: "center",
             display: "flex",
+            pr:{xs:"42px",sm:"48px",md:"0px",lg:"0px"},
             // border: "2px solid black",
           }}
         >
           <img
+          className="responsive-img"
             style={{
               width: "100%",
               height: "auto",
-              marginTop: "42px",
             }}
-            src="card1.png"
-            alt="image"
+            src="previous.png"
+            alt="image failed"
             srcset=""
           />
-          {/* <Box
+        </Box>) : 
+        (
+          <Box 
+          // item
+          // xs={12}
+          // md={6}
+          sx={{
+            width: { xs: "100%", sm: "50%", md: "50%", lg: "50%" },
+          }}>
+          <Box
             component="img"
-            src="/card1.png"
+            src="/previous2.png"
             alt="About Image"
             sx={{
               width: "100%",
             //   height: { lg: "450px", md: "330px", sm: "400px", xs: "250px" },
             height:"auto"
             }}
-          /> */}
-        </Box>
+          />
+          </Box>
+        )
+      }
       </Box>
     </Box>
   );

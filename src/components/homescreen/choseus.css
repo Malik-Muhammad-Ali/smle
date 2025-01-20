@@ -1,0 +1,15 @@
+@media (max-width: 600px) {
+    .responsive-img {
+      margin-top: 5px;
+    }
+  }
+  @media (min-width: 600px) and (max-width: 960px) {
+    .responsive-img {
+      margin-top: 5px;
+    }
+  }
+  @media (min-width: 960px) {
+    .responsive-img {
+      margin-top: 42px;
+    }
+  }

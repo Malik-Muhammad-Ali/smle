@@ -30,14 +30,14 @@ const StatsSection = () => {
     <Box
         sx={{
           display: "flex",
-          justifyContent: "space-around",
+          justifyContent: {xs:"space-between",sm:"space-between",md:"space-around",lg:"space-around"},
           alignItems: "center",
           backgroundColor: "#FFFFFF",
           color: "#116EFA",
           padding: { xs: 1, sm: 2, md: 3, lg: 4 },
-          mr: { xs: 2, sm: 4, md: 8 },
-          ml: { xs: 2, sm: 4, md: 8 },
-          borderRadius: "16px",
+          mr: { xs: 'unset', sm: 'unset', md: 8 },
+          ml: { xs: 'unset', sm: 'unset', md: 8 },
+          borderRadius: {xs:"none",sm:"none",md:"16px",lg:"16px"},
           boxShadow:2
         }}
       >
