@@ -11,6 +11,7 @@ import OurTeam from "./components/homescreen/OurTeam";
 import Testimonials from "./components/homescreen/Testimonials";
 import LandingServices from "./components/homescreen/LandingServices";
 import Login from "./components/auth/Login";
+import Courses from "./pages/courses/Courses";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/team" element={<OurTeam />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/courses" element={<Courses />} />
         </Route>
       </Routes>
     </Router>

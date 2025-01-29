@@ -5,12 +5,21 @@ import {
   Card,
   CardContent,
   CardMedia,
+  LinearProgress,
+  Paper,
   Typography,
 } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
 const Testimonials = () => {
+  const ratingsData = [
+    { digit: 5, value: 80 }, // 80% for 5 stars
+    { digit: 4, value: 60 }, // 60% for 4 stars
+    { digit: 3, value: 40 }, // 40% for 3 stars
+    { digit: 2, value: 20 }, // 20% for 2 stars
+    { digit: 1, value: 10 }, // 10% for 1 star
+  ];
   const testimonialsData = [
     {
       image: "sirsalman.png",
@@ -106,31 +115,124 @@ const Testimonials = () => {
       <Box
         sx={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: {
+            lg: "space-between",
+            md: "space-around",
+            xs: "start",
+          },
           alignItems: "center",
           mb: 4,
           flexWrap: "wrap",
         }}
       >
-        <Box
+        <Paper
+          elevation={3}
           sx={{
+            width: { xs: "300px", sm: "350px", md: "414px" },
+            height: { xs: "160px", sm: "180px", md: "135px" },
+            p: 2,
+            borderRadius: "12px",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
             display: "flex",
-            flexDirection: "column",
-            gap: "5px",
+            flexDirection: "row", // Main layout direction is row
+            gap: 2,
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
-          <Typography
-            sx={{ fontWeight: "700", fontSize: "28px", color: "#222" }}
-          >
-            4.5
+          {/* Box 1: Rating and Reviews */}
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+            <Typography
+              sx={{
+                fontWeight: 1000,
+                fontSize: { xs: "24px", md: "45px" },
+                color: "black",
+              }}
+            >
+              4.5
+            </Typography>
+
+            <Box
+              sx={{
+                backgroundColor: "#000",
+                color: "#FFF",
+                borderRadius: "15px",
+                px: 2,
+                py: 0.5,
+                fontSize: { xs: "12px", md: "14px" },
+              }}
+            >
+              653 reviews
+            </Box>
+          </Box>
+
+          {/* Box 2: Big Star */}
+          <Box>
             <StarIcon
-              sx={{ color: "#FFC107", fontSize: "28px", marginLeft: "5px" }}
+              sx={{
+                fontSize: { xs: "30px", md: "50px" },
+                color: "#007BFF",
+              }}
             />
-          </Typography>
-          <Typography sx={{ color: "#555", fontSize: "14px" }}>
-            653 reviews
-          </Typography>
-        </Box>
+          </Box>
+
+          {/* Box 3: Digits, Stars, and Lines */}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 0.5,
+              width: "100%", // Ensures it fits within the parent
+            }}
+          >
+            {ratingsData.map((item) => (
+              <Box
+                key={item.digit}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                }}
+              >
+                {/* Digit */}
+                <Typography
+                  sx={{
+                    fontWeight: "500",
+                    fontSize: { xs: "12px", md: "14px" },
+                    color: "#6a6a6a",
+                    minWidth: "20px", // Keeps digits aligned
+                  }}
+                >
+                  {item.digit}
+                </Typography>
+
+                {/* Small Star */}
+                <StarIcon
+                  sx={{
+                    fontSize: { xs: "16px", md: "18px" },
+                    color: "#116efa",
+                  }}
+                />
+
+                {/* Line */}
+                <LinearProgress
+                  variant="determinate"
+                  value={item.value}
+                  sx={{
+                    flex: 1,
+                    height: "6px",
+                    borderRadius: "4px",
+                    backgroundColor: "white",
+                    "& .MuiLinearProgress-bar": {
+                      backgroundColor: "#5D5DFF", // Purple
+                      borderRadius: "10px",
+                    },
+                  }}
+                />
+              </Box>
+            ))}
+          </Box>
+        </Paper>
 
         <Button
           variant="outlined"
@@ -143,6 +245,7 @@ const Testimonials = () => {
             borderRadius: "20px",
             background: "#116EFA",
             padding: "5px 20px",
+            display: { lg: "flex", md: "flex", xs: "none", sm: "none" },
           }}
         >
           See All
@@ -239,6 +342,18 @@ const Testimonials = () => {
               >
                 {testimonial.feedback}
               </Typography>
+              {/* <Box sx={{ display: "flex" }}>
+                <Typography
+                  sx={{
+                    color: "#116efa",
+                    height: "10px",
+                    fontSize: "40px",
+                    border: "2px solid black",
+                  }}
+                >
+                  .
+                </Typography>
+              </Box> */}
               <Typography
                 variant="body1"
                 sx={{
@@ -261,6 +376,33 @@ const Testimonials = () => {
             </CardContent>
           </Card>
         ))}
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          mt: "30px",
+        }}
+      >
+        <Button
+          variant="outlined"
+          sx={{
+            textTransform: "none",
+            textAlign: "center",
+            width: "250px",
+            height: "40px",
+            alignSelf: "center",
+            color: "white",
+            borderColor: "#116EFA",
+            borderRadius: "10px",
+            background: "#116EFA",
+            padding: "5px 20px",
+            display: { lg: "none", md: "none", xs: "flex", sm: "flex" },
+          }}
+        >
+          See All
+        </Button>
       </Box>
     </Box>
   );

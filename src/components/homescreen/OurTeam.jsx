@@ -37,7 +37,7 @@ const OurTeam = () => {
         padding: { md: "30px", sm: "30px", lg: "40px", xs: "25px" },
         margin: "20px",
         borderRadius: "20px",
-        backgroundColor: "white",
+        // backgroundColor: "white",
       }}
     >
       {/* Our Team Heading Section */}
