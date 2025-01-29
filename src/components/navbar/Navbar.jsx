@@ -211,12 +211,12 @@ const Navbar = () => {
             height: "100%",
           }}
         >
-          <Link to="/">
+          <Link to="hero-section">
             <Button
               sx={{
                 fontSize: "16px",
                 fontWeight: "400",
-                color: location.pathname === "/" ? "#CE2729" : "#656565",
+                color: "black",
                 marginBottom: "-15px",
               }}
               onClick={() => toggleDrawer()}
@@ -225,12 +225,12 @@ const Navbar = () => {
               {/* {language === "en" ? "Home" : "الرئيسية"} */}
             </Button>
           </Link>
-          <Link to="/">
+          <Link to="about-us">
             <Button
               sx={{
                 fontSize: "16px",
                 fontWeight: "400",
-                color: location.pathname === "/" ? "#CE2729" : "#656565",
+                color: "black",
                 marginBottom: "-15px",
               }}
               onClick={() => toggleDrawer()}
@@ -239,12 +239,12 @@ const Navbar = () => {
               {/* {language === "en" ? "Features" : "الميزات"} */}
             </Button>
           </Link>
-          <Link to="/">
+          <Link to="services-section">
             <Button
               sx={{
                 fontSize: "16px",
                 fontWeight: "400",
-                color: location.pathname === "/" ? "#CE2729" : "#656565",
+                color: "black",
                 marginBottom: "-15px",
               }}
               onClick={() => toggleDrawer()}
@@ -253,12 +253,12 @@ const Navbar = () => {
               {/* {language === "en" ? "Subscriptions" : "الاشتراكات"} */}
             </Button>
           </Link>
-          <Link to="/">
+          <Link to="testimonials-section">
             <Button
               sx={{
                 fontSize: "16px",
                 fontWeight: "400",
-                color: location.pathname === "/" ? "#CE2729" : "#656565",
+                color: "black",
                 marginBottom: "-15px",
               }}
               onClick={() => toggleDrawer()}
