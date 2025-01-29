@@ -19,7 +19,7 @@ import {
   Search as SearchIcon,
 } from "@mui/icons-material";
 
-const CourseComponent = () => {
+const Products = () => {
   const [checkedState, setCheckedState] = useState({
     first: false,
     second: false,
@@ -63,7 +63,7 @@ const CourseComponent = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            backgroundImage: "url(smlecourses.png)",
+            backgroundImage: "url(smleproducts.png)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             padding: isSmallScreen ? 3 : 6,
@@ -91,7 +91,7 @@ const CourseComponent = () => {
               fontWeight: "bold",
             }}
           >
-            Courses
+            Products
           </Typography>
 
           <Button
@@ -106,9 +106,10 @@ const CourseComponent = () => {
               },
             }}
           >
-            0 Courses
+            0 Products
           </Button>
         </Box>
+
         {/* after picture box */}
         <Paper
           elevation={3}
@@ -147,7 +148,7 @@ const CourseComponent = () => {
                   gap: 3,
                 }}
               >
-                {[...Array(4)].map((_, index) => (
+                {[...Array(3)].map((_, index) => (
                   <Box
                     key={index}
                     sx={{ display: "flex", alignItems: "center", gap: 1 }}
@@ -176,7 +177,7 @@ const CourseComponent = () => {
                 }}
               >
                 <DownwardIcon />
-                <Typography variant="h6">Newest</Typography>
+                <Typography variant="h6">Sort by</Typography>
               </Box>
             </Box>
           </Box>
@@ -243,14 +244,14 @@ const CourseComponent = () => {
               justifySelf: "center",
               mb: 2,
               pb: 1,
-              // display: "inline-block", // Restricts underline to text width
+              //   display: "inline-block", // Restricts underline to text width
               borderBottom: "2px solid blue", // Adds underline
             }}
           >
             Type
           </Typography>
 
-          {Array.from({ length: 4 }, (_, i) => (
+          {Array.from({ length: 2 }, (_, i) => (
             <Box
               key={i}
               sx={{
@@ -268,6 +269,19 @@ const CourseComponent = () => {
               />
             </Box>
           ))}
+          <Button
+            variant="contained"
+            fullWidth
+            sx={{
+              mt: 2,
+              backgroundColor: "primary.main",
+              borderRadius: "10px",
+              textTransform: "none",
+              "&:hover": { backgroundColor: "primary.dark" },
+            }}
+          >
+            Filter Items
+          </Button>
         </Paper>
       </Box>
       {/*  2nd paper Box*/}
@@ -297,18 +311,18 @@ const CourseComponent = () => {
             sx={{
               textAlign: "center",
               display: "flex",
-              fontWeight: "bold",
               justifySelf: "center",
+              fontWeight: "bold",
               mb: 2,
               pb: 1,
-              // display: "inline-block", // Restricts underline to text width
+              //   display: "inline-block", // Restricts underline to text width
               borderBottom: "2px solid blue", // Adds underline
             }}
           >
-            Type
+            Options
           </Typography>
 
-          {Array.from({ length: 4 }, (_, i) => (
+          {Array.from({ length: 2 }, (_, i) => (
             <Box
               key={i}
               sx={{
@@ -399,4 +413,4 @@ const CourseComponent = () => {
   );
 };
 
-export default CourseComponent;
+export default Products;

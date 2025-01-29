@@ -12,7 +12,6 @@ import Testimonials from "./components/homescreen/Testimonials";
 import LandingServices from "./components/homescreen/LandingServices";
 import Login from "./components/auth/Login";
 import Courses from "./pages/courses/Courses";
-import AboutUs from "./pages/about us/AboutUs";
 
 function App() {
   return (
@@ -28,7 +27,6 @@ function App() {
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/login" element={<Login />} />
           <Route path="/courses" element={<Courses />} />
-          <Route path="/aboutUs" element={<AboutUs />} />
         </Route>
       </Routes>
     </Router>
