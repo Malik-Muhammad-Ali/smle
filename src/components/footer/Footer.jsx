@@ -15,8 +15,10 @@ import {
   Twitter,
   ArrowForward,
 } from "@mui/icons-material";
+import { useNavigate } from "react-router";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -221,13 +223,13 @@ const Footer = () => {
                   color: "white", // Makes bullets white
                 }}
               >
-                <li>
+                <li style={{cursor:"pointer"}}>
                   <Typography variant="body2">Privacy Policy</Typography>
                 </li>
-                <li>
+                <li style={{cursor:"pointer"}}>
                   <Typography variant="body2">Refund Policy</Typography>
                 </li>
-                <li>
+                <li style={{cursor:"pointer"}}>
                   <Typography variant="body2">Terms & Conditions</Typography>
                 </li>
               </ul>
@@ -259,22 +261,22 @@ const Footer = () => {
                   color: "white", // Makes bullets white
                 }}
               >
-                <li>
+                <li style={{cursor:"pointer"}}>
                   <Typography variant="body2">Home</Typography>
                 </li>
-                <li>
-                  <Typography variant="body2">About Us</Typography>
+                <li style={{cursor:"pointer"}}>
+                  <Typography variant="body2" onClick={()=>navigate("/Aboutus")}>About Us</Typography>
                 </li>
-                <li>
-                  <Typography variant="body2">Our Services</Typography>
+                <li style={{cursor:"pointer"}}>
+                  <Typography variant="body2" onClick={()=>navigate("/courses")}>Our Services</Typography>
                 </li>
-                <li>
+                <li style={{cursor:"pointer"}}>
                   <Typography variant="body2">Our Team</Typography>
                 </li>
-                <li>
+                <li style={{cursor:"pointer"}}>
                   <Typography variant="body2">Reviews</Typography>
                 </li>
-                <li>
+                <li style={{cursor:"pointer"}}>
                   <Typography variant="body2">Contact Us</Typography>
                 </li>
               </ul>
