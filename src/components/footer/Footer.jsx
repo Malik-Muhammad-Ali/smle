@@ -223,13 +223,13 @@ const Footer = () => {
                   color: "white", // Makes bullets white
                 }}
               >
-                <li style={{cursor:"pointer"}}>
+                <li style={{ cursor: "pointer" }}>
                   <Typography variant="body2">Privacy Policy</Typography>
                 </li>
-                <li style={{cursor:"pointer"}}>
+                <li style={{ cursor: "pointer" }}>
                   <Typography variant="body2">Refund Policy</Typography>
                 </li>
-                <li style={{cursor:"pointer"}}>
+                <li style={{ cursor: "pointer" }}>
                   <Typography variant="body2">Terms & Conditions</Typography>
                 </li>
               </ul>
@@ -261,22 +261,37 @@ const Footer = () => {
                   color: "white", // Makes bullets white
                 }}
               >
-                <li style={{cursor:"pointer"}}>
+                <li style={{ cursor: "pointer" }}>
                   <Typography variant="body2">Home</Typography>
                 </li>
-                <li style={{cursor:"pointer"}}>
-                  <Typography variant="body2" onClick={()=>navigate("/Aboutus")}>About Us</Typography>
+                <li style={{ cursor: "pointer" }}>
+                  <Typography
+                    variant="body2"
+                    onClick={() => navigate("/Aboutus")}
+                  >
+                    About Us
+                  </Typography>
                 </li>
-                <li style={{cursor:"pointer"}}>
-                  <Typography variant="body2" onClick={()=>navigate("/courses")}>Our Services</Typography>
+                <li style={{ cursor: "pointer" }}>
+                  <Typography
+                    variant="body2"
+                    onClick={() => navigate("/courses")}
+                  >
+                    Our Services
+                  </Typography>
                 </li>
-                <li style={{cursor:"pointer"}}>
-                  <Typography variant="body2">Our Team</Typography>
+                <li style={{ cursor: "pointer" }}>
+                  <Typography
+                    variant="body2"
+                    onClick={() => navigate("/products")}
+                  >
+                    Our Team
+                  </Typography>
                 </li>
-                <li style={{cursor:"pointer"}}>
+                <li style={{ cursor: "pointer" }}>
                   <Typography variant="body2">Reviews</Typography>
                 </li>
-                <li style={{cursor:"pointer"}}>
+                <li style={{ cursor: "pointer" }}>
                   <Typography variant="body2">Contact Us</Typography>
                 </li>
               </ul>
