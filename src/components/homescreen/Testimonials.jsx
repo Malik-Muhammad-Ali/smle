@@ -257,9 +257,11 @@ const Testimonials = () => {
         sx={{
           display: "grid",
           gridTemplateColumns: {
-            xs: "1fr", // Single column for small screens
-            sm: "repeat(2, 1fr)", // Two columns for tablet screens
-            md: "repeat(3, 1fr)", // Three columns for large screens
+            xs: "1fr",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(3, 1fr)",
+            xl: "repeat(4, 1fr)",
           },
           gap: "20px",
         }}
@@ -342,18 +344,27 @@ const Testimonials = () => {
               >
                 {testimonial.feedback}
               </Typography>
-              {/* <Box sx={{ display: "flex" }}>
-                <Typography
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  // border:"2px solid black"
+                }}
+              >
+                <Box
                   sx={{
-                    color: "#116efa",
+                    width: "10px",
                     height: "10px",
-                    fontSize: "40px",
-                    border: "2px solid black",
+                    bgcolor: "#116efa",
+                    alignSelf: "center",
+                    borderRadius: "50%",
+                    mt: "10px",
+                    mb: "10px",
                   }}
-                >
-                  .
-                </Typography>
-              </Box> */}
+                />
+              </Box>
               <Typography
                 variant="body1"
                 sx={{

@@ -19,11 +19,13 @@ import React from "react";
 import StarIcon from "@mui/icons-material/Star";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import { useState } from "react";
+
 const AboutUs = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   const ratingsData = [
     { digit: 5, value: 80 }, // 80% for 5 stars
     { digit: 4, value: 60 }, // 60% for 4 stars
@@ -31,6 +33,7 @@ const AboutUs = () => {
     { digit: 2, value: 20 }, // 20% for 2 stars
     { digit: 1, value: 10 }, // 10% for 1 star
   ];
+
   const testimonialsData = [
     {
       image: "sirsalman.png",
@@ -53,7 +56,29 @@ const AboutUs = () => {
       feedback:
         "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
     },
+    {
+      image: "sirsalman.png",
+      name: "John Smith",
+      role: "Global Applications Representative",
+      feedback:
+        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    },
+    {
+      image: "sirsalman.png",
+      name: "John Smith",
+      role: "Global Applications Representative",
+      feedback:
+        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    },
+    {
+      image: "sirsalman.png",
+      name: "John Smith",
+      role: "Global Applications Representative",
+      feedback:
+        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    },
   ];
+
   const teamMembers = [
     {
       image: "m1.png",
@@ -112,7 +137,14 @@ const AboutUs = () => {
         "With a deep passion for medical education and a track record of student success, Dr. Salman Rasheed combines his expertise and experience to help students excel in their medical licensing exams. His personalized teaching approach ensures that complex topics are made simple and understandable",
     },
   ];
+
   const selectedMember = teamMembers[selectedIndex];
+
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleTestimonials = showAll
+    ? testimonialsData
+    : testimonialsData.slice(0, 3);
 
   return (
     <>
@@ -137,6 +169,7 @@ const AboutUs = () => {
             justifyContent: "center",
             backgroundImage: "url(smlecourses.png)",
             backgroundSize: "cover",
+            borderRadius: "20px",
             backgroundPosition: "center",
             padding: isSmallScreen ? 3 : 6,
             "&::before": {
@@ -147,11 +180,12 @@ const AboutUs = () => {
               right: 0,
               bottom: 0,
               backgroundColor: "rgba(0, 0, 0, 0.5)",
+              borderRadius: "20px",
             },
           }}
         >
           <Typography
-            variant={isSmallScreen ? "h4" : "h2"}
+            variant={isSmallScreen ? "h5" : "h2"}
             sx={{
               position: "relative",
               color: "white",
@@ -163,7 +197,7 @@ const AboutUs = () => {
             SMLE Guide Dedicated
           </Typography>
           <Typography
-            variant={isSmallScreen ? "h4" : "h2"}
+            variant={isSmallScreen ? "h5" : "h2"}
             sx={{
               position: "relative",
               color: "white",
@@ -180,9 +214,9 @@ const AboutUs = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          gap: "20px",
-          mr: { xs: 2, sm: 4, md: 8 },
-          ml: { xs: 2, sm: 4, md: 8 },
+          gap: "30px",
+          mr: { xs: 1, sm: 4, md: 8 },
+          ml: { xs: 1, sm: 4, md: 8 },
         }}
       >
         {/* our team */}
@@ -192,8 +226,9 @@ const AboutUs = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "space-around",
+            gap: { xs: "20px", md: "40px" },
             // width:300,
-            height: 300,
+            height: "auto",
           }}
         >
           <Typography variant="h4" fontWeight="bold" color="#116EFA">
@@ -203,7 +238,14 @@ const AboutUs = () => {
             sx={{
               display: "flex",
               flexDirection: { xs: "row", sm: "row" },
+              alignItems: { xs: "flex-start", md: "center" },
               justifyContent: "space-around",
+              overflowX: "scroll",
+              scrollbarWidth: "none",
+              "&::-webkit-scrollbar": {
+                display: "none",
+              },
+              gap: { xs: "30px", md: "unset" },
               width: "100%",
               height: "100%",
             }}
@@ -254,12 +296,36 @@ const AboutUs = () => {
               </Stack>
             ))}
           </Box>
+          <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "10px",
+          marginTop: "10px",
+        }}
+      >
+        {teamMembers.map((_, index) => (
+          <Box
+            key={index}
+            sx={{
+              width: "10px",
+              height: "10px",
+              borderRadius: "50%",
+              display: { lg: "none", md: "none", xs: "flex", sm: "none" },
+              backgroundColor:
+                index === selectedIndex ? "#116EFA" : "#ddd",
+              transition: "background-color 0.3s ease",
+            }}
+          />
+        ))}
+      </Box>
         </Box>
-        {/* sir salman */}
+
+        {/* Details */}
         <Box
           sx={{
             display: "flex",
-            flexDirection: { lg: "row", md: "row", sm: "column", xs: "column" },
+
             justifyContent: "center",
             alignItems: "center",
           }}
@@ -268,6 +334,12 @@ const AboutUs = () => {
             sx={{
               display: "flex",
               alignItems: "center",
+              flexDirection: {
+                lg: "row",
+                md: "row",
+                sm: "row",
+                xs: "column",
+              },
               p: 2,
               borderRadius: 2,
               boxShadow: "none",
@@ -278,9 +350,9 @@ const AboutUs = () => {
               src={selectedMember.image}
               alt={selectedMember.name}
               sx={{
-                width: 300,
-                height: 300,
-                mr: 3,
+                width: { lg: 300, md: 300, sm: 200, xs: 200 },
+                height: { lg: 300, md: 300, sm: 200, xs: 200 },
+                mr: { lg: 3, md: 3, sm: 2, xs: 1 },
                 border: "3px solid #116EFA",
               }}
             />
@@ -290,6 +362,7 @@ const AboutUs = () => {
                 fontWeight="bold"
                 color="#116EFA"
                 disableGutters
+                sx={{display:"flex",alignSelf:"center",justifySelf:{xs:"center",sm:"flex-start"}}}
               >
                 {selectedMember.name}
               </Typography>
@@ -323,7 +396,7 @@ const AboutUs = () => {
             justifyContent: {
               lg: "space-between",
               md: "space-around",
-              xs: "start",
+              xs: "center",
             },
             alignItems: "center",
             mb: 4,
@@ -440,6 +513,7 @@ const AboutUs = () => {
           </Paper>
 
           <Button
+            onClick={() => setShowAll(!showAll)}
             variant="outlined"
             sx={{
               textTransform: "none",
@@ -453,7 +527,7 @@ const AboutUs = () => {
               display: { lg: "flex", md: "flex", xs: "none", sm: "none" },
             }}
           >
-            See All
+            {showAll ? "See Less" : "See More"}
           </Button>
         </Box>
 
@@ -464,12 +538,13 @@ const AboutUs = () => {
             gridTemplateColumns: {
               xs: "1fr", // Single column for small screens
               sm: "repeat(2, 1fr)", // Two columns for tablet screens
-              md: "repeat(3, 1fr)", // Three columns for large screens
+              md: "repeat(2, 1fr)", // Three columns for large screens
+              lg: "repeat(3, 1fr)", // Three columns for large screens
             },
             gap: "20px",
           }}
         >
-          {testimonialsData.map((testimonial, index) => (
+          {visibleTestimonials.map((testimonial, index) => (
             <Card
               key={index}
               sx={{
@@ -550,7 +625,7 @@ const AboutUs = () => {
                 <Box
                   sx={{
                     width: "100%",
-                    display:"flex",
+                    display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                     // border:"2px solid black"
@@ -562,9 +637,9 @@ const AboutUs = () => {
                       height: "10px",
                       bgcolor: "#116efa",
                       alignSelf: "center",
-                      borderRadius:"50%",
-                      mt:"10px",
-                      mb:"10px",
+                      borderRadius: "50%",
+                      mt: "10px",
+                      mb: "10px",
                     }}
                   />
                 </Box>
@@ -599,9 +674,11 @@ const AboutUs = () => {
             alignItems: "center",
             justifyContent: "center",
             mt: "30px",
+            mb: "30px",
           }}
         >
           <Button
+            onClick={() => setShowAll(!showAll)}
             variant="outlined"
             sx={{
               textTransform: "none",
@@ -617,7 +694,7 @@ const AboutUs = () => {
               display: { lg: "none", md: "none", xs: "flex", sm: "flex" },
             }}
           >
-            See All
+            {showAll ? "See Less" : "See More"}
           </Button>
         </Box>
       </Box>

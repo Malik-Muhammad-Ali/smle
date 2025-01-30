@@ -156,6 +156,7 @@ const Navbar = () => {
               </Link>
             </Box>
             <Button
+            onClick={()=>navigate("/login")}
               variant="contained"
               endIcon={<EastIcon />}
               sx={{
