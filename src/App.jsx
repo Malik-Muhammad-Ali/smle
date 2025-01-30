@@ -13,6 +13,7 @@ import LandingServices from "./components/homescreen/LandingServices";
 import Login from "./components/auth/Login";
 import Courses from "./pages/courses/Courses";
 import AboutUs from "./pages/about us/AboutUs";
+import Products from "./pages/products/Products";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/products" element={<Products />} />
         </Route>
       </Routes>
     </Router>
